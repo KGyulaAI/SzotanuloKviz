@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SzotanuloKviz
 {
-    internal class Word
+    public class Word
     {
+        public int Id { get; set; }
+        public string WordText { get; set; }
+        public string Meaning { get; set; }
+        public int LearnedCount { get; set; }
     }
+
 }
