@@ -6,7 +6,54 @@
         xmlns:local="clr-namespace:SzotanuloKviz"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF6A00" Offset="0" />
+            <GradientStop Color="#FFB100" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
 
+    <Grid>
+        <!-- Két sor: Az első tartalmazza a nagy label-t, a második a gombokat -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- A cím részének automatikus magassága -->
+            <RowDefinition Height="*" />
+            <!-- A gombok részének rugalmas magassága -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <!-- Középre igazított tartalom -->
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Üdvözöllek!"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="36"
+                FontWeight="Bold"
+               Foreground="White"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+               Margin="20">
+            <Label.Effect>
+                <DropShadowEffect Color="Black" Direction="270" ShadowDepth="10" BlurRadius="15" Opacity="0.5"/>
+            </Label.Effect>
+        </Label>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Gomb 1" Height="50" Margin="5" FontSize="16" Background="#FF6A00" Foreground="White" BorderBrush="White" BorderThickness="2" FontWeight="Bold"/>
+            <Button Grid.Column="1" Content="Gomb 2" Height="50" Margin="5" FontSize="16" Background="#FF6A00" Foreground="White" BorderBrush="White" BorderThickness="2" FontWeight="Bold"/>
+            <Button Grid.Column="2" Content="Gomb 3" Height="50" Margin="5" FontSize="16" Background="#FF6A00" Foreground="White" BorderBrush="White" BorderThickness="2" FontWeight="Bold"/>
+            <Button Grid.Column="3" Content="Gomb 4" Height="50" Margin="5" FontSize="16" Background="#FF6A00" Foreground="White" BorderBrush="White" BorderThickness="2" FontWeight="Bold"/>
+        </Grid>
     </Grid>
 </Window>
