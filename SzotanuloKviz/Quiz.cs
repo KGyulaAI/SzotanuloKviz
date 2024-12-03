@@ -1,43 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SzotanuloKviz
+﻿namespace SzotanuloKviz
 {
     public class Quiz
     {
-        private List<Word> words;
-        private List<Word> wrongAnswers;
-        private int currentQuestionIndex;
+        private Database db;
+        private List<Word> currentWords;
 
-        public Quiz(List<Word> words)
+        public Quiz(Database database)
         {
-            this.words = words;
-            this.wrongAnswers = new List<Word>();
-            this.currentQuestionIndex = 0;
+            db = database;
+            currentWords = new List<Word>();
         }
 
-        public Word GetNextQuestion()
+        public void StartQuiz(int wordCount)
         {
-            if (currentQuestionIndex < words.Count)
+            db.OpenConnection();
+            currentWords = db.GetRandomWords(wordCount);
+            db.CloseConnection();
+        }
+        public void CheckAnswer(Word word, string answer)
+        {
+            if (answer.Equals(word.Meaning, StringComparison.OrdinalIgnoreCase))
             {
-                return words[currentQuestionIndex++];
+                word.CorrectAnswers++;
             }
-            return null; // Nincs több kérdés
+            else
+            {
+                word.Mistakes++;
+            }
         }
 
-        public void RecordWrongAnswer(Word word)
-        {
-            wrongAnswers.Add(word);
-        }
-
-        public void ResetQuiz()
-        {
-            currentQuestionIndex = 0;
-            // További logika a hibás válaszok kezelésére
-        }
+        public List<Word> CurrentWords { get => currentWords; }
     }
-
 }

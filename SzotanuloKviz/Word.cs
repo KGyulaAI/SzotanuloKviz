@@ -1,17 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SzotanuloKviz
+﻿namespace SzotanuloKviz
 {
     public class Word
     {
-        public int Id { get; set; }
-        public string WordText { get; set; }
-        public string Meaning { get; set; }
-        public int LearnedCount { get; set; }
-    }
+        public Word(int id, string wordText, string meaning, int correctAnswers, int mistakes, int correctStreak)
+        {
+            Id = id;
+            WordText = wordText;
+            Meaning = meaning;
+            CorrectAnswers = correctAnswers;
+            Mistakes = mistakes;
+            CorrectStreak = correctStreak;
+        }
 
+        public int Id { get; }
+        public string WordText { get; }
+        public string Meaning { get; }
+        public int CorrectAnswers { get; set; }
+        public int Mistakes { get; set; }
+        public int AllAnswers { get => CorrectAnswers + Mistakes; }
+        public int CorrectStreak { get; set; }
+    }
 }
