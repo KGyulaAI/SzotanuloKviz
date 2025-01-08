@@ -9,10 +9,57 @@
       Title="MainMenu">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,51,0,0" TextWrapping="Wrap" Text="Üdv a kvízben" FontSize="50" VerticalAlignment="Top"/>
-        <Button x:Name="btnKonnyu" Content="Könnyű" HorizontalAlignment="Left" Margin="168,193,0,0" VerticalAlignment="Top" Click="btnKonnyu_Click"/>
-        <Button x:Name="btnKozepes" Content="Közepes" HorizontalAlignment="Left" Margin="400,188,0,0" VerticalAlignment="Top" Click="btnKozepes_Click"/>
-        <Button x:Name="btnNehez" Content="Nehéz" HorizontalAlignment="Left" Margin="628,193,0,0" VerticalAlignment="Top" Click="btnNehez_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,51,0,0" TextWrapping="Wrap" FontFamily="Georgia" Text="Szókvíz" FontSize="50" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+
+        <Button x:Name="btnKonnyu" Content="Könnyű" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" 
+    Click="btnKonnyu_Click" Margin="10" Height="100px" FontSize="30" FontFamily="Georgia">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="DarkOrange" BorderBrush="Black" BorderThickness="2" CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnKozepes" Content="Közepes" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" 
+    Click="btnKozepes_Click" Margin="10" Height="100px" FontSize="30" FontFamily="Georgia">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="DarkOrange" BorderBrush="Black" BorderThickness="2" CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnNehez" Content="Nehéz" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" 
+    Click="btnNehez_Click" Margin="10" Height="100px" FontSize="30" FontFamily="Georgia">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="DarkOrange" BorderBrush="Black" BorderThickness="2" CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
     </Grid>
+
+
+
+
+
+
 </Page>

@@ -27,7 +27,7 @@ namespace SzotanuloKviz
         {
             List<Word> words = new List<Word>();
             string query = 
-                $"SELECT * FROM words " +
+                $"SELECT * FROM szavak " +
                 $"WHERE CorrectStreak < 3 " +
                 $"ORDER BY RAND() " +
                 @"LIMIT @Count";
@@ -102,7 +102,7 @@ namespace SzotanuloKviz
         {
             OpenConnection();
             string query = 
-                "UPDATE words " +
+                "UPDATE szavak " +
                 "SET " +
                 @"CorrectAnswers = CorrectAnswers + @newCorrectAnswers, " +
                 @"Mistakes = Mistakes + @newMistakes, " +

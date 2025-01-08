@@ -71,8 +71,12 @@ namespace SzotanuloKviz
                     {
                         Content = randomWords[randomWordsIndex++].Meaning,
                         FontSize = 30,
+                        Background = new SolidColorBrush(Colors.DarkOrange),
+                        FontFamily = new FontFamily("Georgia")
                     };
                     answerButton.Click += AnswerButton_Click;
+                    answerButton.Height = 60;
+                    answerButton.Width = 350;
                     Grid.SetRow(answerButton, i);
                     Grid.SetColumn(answerButton, j);
                     gridMain.Children.Add(answerButton);
@@ -108,7 +112,8 @@ namespace SzotanuloKviz
                     HighlightCorrectAnswer(meaning);
                     questions[currentQuestionIndex].Mistakes++;
                 }
-                btnNext.IsEnabled = true;
+                btnNext.Visibility = Visibility.Visible;
+
             }
         }
         private void HighlightCorrectAnswer(string correctAnswer)
@@ -123,7 +128,7 @@ namespace SzotanuloKviz
         }
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
-            btnNext.IsEnabled = false;
+            btnNext.Visibility = Visibility.Collapsed;
             currentQuestionIndex++;
             NewQuestion();
         }
