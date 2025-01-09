@@ -27,17 +27,17 @@ namespace SzotanuloKviz
 
         private void btnKonnyu_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new QuizPage("easy"));
+            NavigationService.Navigate(new QuizPage(Difficulty.Easy));
         }
 
         private void btnKozepes_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new QuizPage("medium"));
+            NavigationService.Navigate(new QuizPage(Difficulty.Medium));
         }
 
         private void btnNehez_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new QuizPage("hard"));
+            NavigationService.Navigate(new QuizPage(Difficulty.Hard));
         }
     }
 }

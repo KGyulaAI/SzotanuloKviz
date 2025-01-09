@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SzotanuloKviz
 {
@@ -20,26 +21,23 @@ namespace SzotanuloKviz
     /// </summary>
     public partial class QuizPage : Page
     {
-        private readonly string difficulty;
         private readonly Database db;
         private readonly Quiz quiz;
         private int currentQuestionIndex = 0;
         private List<Word> questions;
         private int correctAnswers = 0;
 
-        public QuizPage(string difficulty)
+        public QuizPage(Difficulty difficulty)
         {
             InitializeComponent();
             string connectionString = "server=localhost;port=3306;username=root;password=;database=szotanulokviz;";
-            this.difficulty = difficulty;
             db = new Database(connectionString);
-            quiz = new Quiz(db);
+            quiz = new Quiz(db, difficulty, tbTimer);
             quiz.StartQuiz(10);
             questions = quiz.CurrentWords;
 
             NewQuestion();
         }
-
 
         private void NewQuestion()
         {
@@ -48,6 +46,7 @@ namespace SzotanuloKviz
                 Word question = questions[currentQuestionIndex];
                 tbQuestion.Text = question.WordText;
                 CreateAnswers();
+                quiz.StartTimer();
             }
             else
             {
@@ -63,7 +62,7 @@ namespace SzotanuloKviz
             int randomWordsIndex = 0;
             randomWords.Insert(new Random().Next(4), correctWord);
 
-            for (int i = 1; i < 3; i++)
+            for (int i = 2; i < 4; i++)
             {
                 for (int j = 0; j < 2; j++)
                 {
@@ -99,6 +98,7 @@ namespace SzotanuloKviz
                     }
                 }
 
+                quiz.ResetTimer();
                 if (button.Content.ToString() == meaning)
                 {
                     HighlightCorrectAnswer(meaning);

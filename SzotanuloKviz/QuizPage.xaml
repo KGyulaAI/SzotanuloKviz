@@ -19,9 +19,11 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="tbQuestion" Grid.ColumnSpan="2" FontSize="50" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia"/>
-        <Button x:Name="btnNext" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.Row="3" Content="Következő" Height="60" FontSize="30" Click="btnNext_Click" FontFamily="Georgia" Background="DarkOrange" Width="600"/>
+        <TextBlock x:Name="tbTimer" Grid.ColumnSpan="2" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock x:Name="tbQuestion" Grid.Row="1" Grid.ColumnSpan="2" FontSize="50" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia"/>
+        <Button x:Name="btnNext" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.Row="4" Content="Következő" Height="60" FontSize="30" Click="btnNext_Click" FontFamily="Georgia" Background="DarkOrange" Width="600"/>
     </Grid>
 </Page>
